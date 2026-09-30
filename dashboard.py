@@ -474,15 +474,20 @@ def page_frequencies():
     with st.container(border=True):
         context(
             [
-                ("View", "Population frequencies"),
+                ("View", "One sample"),
                 ("Samples", f"{sample_count:,}"),
                 ("Rows", f"{row_count:,}"),
             ]
         )
-        sample_id = st.text_input("Sample", value="sample00000", placeholder="sample00000")
+        sample_id = st.text_input(
+            "Search for one sample",
+            value="sample00000",
+            placeholder="sample00000",
+            help="Enter one sample id, such as sample00000.",
+        )
     looked_up = sample_frequencies(sample_id.strip(), stamp)
     with st.container(border=True):
-        panel_title("Population frequencies")
+        panel_title("Population frequencies for this sample")
         if looked_up.empty:
             st.warning(f"No sample named {sample_id.strip()} is in the summary.")
         else:
