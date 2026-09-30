@@ -3,5 +3,5 @@ output/
 .mplconfig/
 __pycache__/
 *.py[cod]
-teikovenv/
+.venv/
 .DS_Store
